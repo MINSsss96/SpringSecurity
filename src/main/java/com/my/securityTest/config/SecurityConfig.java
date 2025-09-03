@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/", "/login", "/join","/joinProc").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/my/**").hasAnyAuthority("ADMIN", "USER")
+                        .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated()
                 );
         // Login 요청처리
